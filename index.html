@@ -1,1380 +1,1014 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Omar - Website CV </title>
-    <meta name="description" content>
-    <meta name="keywords" content>
+    <title>Omar - Website CV</title>
+    <meta name="description" content="Omar Ebrahim - Full Stack Developer">
+    <meta name="keywords" content="web developer, full stack, laravel, php, javascript">
 
     <!-- Favicons -->
     <link href="assets/img/profile/omar.png" rel="icon">
-    <link href="assets/img/profile/omar.png"
-      rel="apple-touch-icon">
+    <link href="assets/img/profile/omar.png" rel="apple-touch-icon">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Questrial:wght@400&display=swap"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Questrial:wght@400&display=swap" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
-      rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-
-    <!-- AOS -->
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
-      rel="stylesheet">
-    <!-- Swiper -->
-    <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-      rel="stylesheet">
-    <!-- GLightbox -->
 
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet">
 
-    <!-- =======================================================
-  * Template Name: EasyFolio
-  * Template URL: https://bootstrapmade.com/easyfolio-bootstrap-portfolio-template/
-  * Updated: Feb 21 2025 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-  </head>
+    <style>
+        /* تحسين أداء الصور */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
 
-  <body class="index-page">
+        .hero img {
+            loading: eager;
+        }
+
+        .portfolio-image img,
+        .extra-img,
+        .featured-img {
+            loading: lazy;
+        }
+
+        /* تحسين الشهادات */
+        .certificate-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .certificate-modal img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            z-index: 10001;
+        }
+
+        .view-certificate-btn {
+            background: #0d6efd;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .view-certificate-btn:hover {
+            background: #0b5ed7;
+        }
+    </style>
+</head>
+
+<body class="index-page">
 
     <header id="header" class="header d-flex align-items-center sticky-top">
-      <div
-        class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+        <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-        <a href="index.html"
-          class="logo d-flex align-items-center me-auto me-xl-0">
+            <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+                <h1 class="sitename">Omar Ebrahim</h1>
+            </a>
 
-          <!-- <img src="assets/img/logo.webp" alt=""> -->
-          <h1 class="sitename">Omar Ebrahim</h1>
-        </a>
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="#hero" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#resume">Resume</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
 
-        <nav id="navmenu" class="navmenu">
-          <ul>
-            <li><a href="#hero" class="active">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#resume">Resume</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#services">Services</a></li>
+            <div class="header-social-links">
+                <a href="https://x.com/OmarEbr81646909?t=8dFckG1D--hg-hib6HwxpQ&s=09" class="twitter"><i class="bi bi-twitter-x"></i></a>
+                <a href="https://www.facebook.com/omar.ebrahem1" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/omar_ebrahim14/?__pwa=1#" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/omar-ebrahem" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
 
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
-   
-        <div class="header-social-links">
-          <a href="https://x.com/OmarEbr81646909?t=8dFckG1D--hg-hib6HwxpQ&s=09"
-            class="twitter"><i class="bi bi-twitter-x"></i></a>
-          <a href="https://www.facebook.com/omar.ebrahem1" class="facebook"><i
-              class="bi bi-facebook"></i></a>
-          <a href="https://www.instagram.com/omar_ebrahim14/?__pwa=1#"
-            class="instagram"><i class="bi bi-instagram"></i></a>
-          <a href="https://www.linkedin.com/in/omar-ebrahem" class="linkedin"><i
-              class="bi bi-linkedin"></i></a>
         </div>
-   
-      </div>
     </header>
 
     <main class="main">
 
-      <!-- ======= Hero Section ======= -->
-      <section id="hero"
-        class="hero section light-background d-flex align-items-center">
-
-        <div class="container">
-          <div class="row align-items-center" data-aos="fade-up"
-            data-aos-delay="100">
-
-            <!-- صورة -->
-            <div class="col-lg-5 text-center mb-4 mb-lg-0">
-              <img src="assets/img/profile/omar.png"
-                class="img-fluid rounded-circle shadow" alt="Omar Ebrahem"
-                style="max-width: 300px;">
-            </div>
-
-            <!-- النص -->
-            <div class="col-lg-7 text-center text-lg-start">
-              <h1 class="fw-bold mb-3">I'm <span class="text-primary">Omar
-                  EbrahIm</span></h1>
-              <h2 class="mb-4">Full Stack Developer passionate about building
-                clean and modern web experiences.</h2>
-              <div
-                class="d-flex justify-content-center justify-content-lg-start gap-3">
-                <a href="#portfolio" class="btn btn-primary px-4 py-2">View
-                  Projects</a>
-                <a
-                  href="assets/cv/Omar Ebrahim Yousef - Web Developer - CV .pdf"
-                  class="btn btn-outline-primary px-4 py-2"
-                  target="_blank">Download CV</a>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </section><!-- End Hero Section -->
-
-      <!-- About Section -->
-      <section id="about" class="about section">
-        <div class="section-title text-center mb-5">
-          <h2>About Me</h2>
-          <p>Get to know more about who I am and what I do</p>
-        </div>
-        <div class="container aos-init aos-animate" data-aos="fade-up"
-          data-aos-delay="100">
-
-          <div class="row align-items-center">
-            <div class="col-lg-6 position-relative aos-init aos-animate"
-              data-aos="fade-right" data-aos-delay="200">
-              <span class="subtitle">About Me</span>
-
-                <h2>Full Stack &amp; Web Developer</h2>
-
-                <p class="mb-4">who loves creating modern, fast, and
-                  user-friendly web
-                  applications.
-                  I enjoy working with both front-end and back-end technologies
-                  to
-                  build clean, responsive, and efficient digital
-                  experiences.</p>
-
-            </div>
-
-            <div class="col-lg-6 aos-init aos-animate" data-aos="fade-left"
-              data-aos-delay="300">
-              <div class="about-content">
-               
-                <div class="personal-info">
-                  <div class="row g-4">
-                    <div class="col-6">
-                      <div class="info-item">
-                        <span class="label">Name</span>
-                        <span class="value">Omar Ebrahim</span>
-                      </div>
+        <!-- ======= Hero Section ======= -->
+        <section id="hero" class="hero section light-background d-flex align-items-center">
+            <div class="container">
+                <div class="row align-items-center" data-aos="fade-up" data-aos-delay="100">
+                    <!-- صورة -->
+                    <div class="col-lg-5 text-center mb-4 mb-lg-0">
+                        <img src="assets/img/profile/omar.png" class="img-fluid rounded-circle shadow" alt="Omar Ebrahem" style="max-width: 300px;">
                     </div>
-
-                    <div class="col-6">
-                      <div class="info-item">
-                        <span class="label">Phone</span>
-                        <span class="value">+0201023196780</span>
-                      </div>
-                    </div>
-
-                    <div class="col-6">
-                      <div class="info-item">
-                        <span class="label">Age</span>
-                        <span class="value">28 Years</span>
-                      </div>
-                    </div>
-
-                    <div class="col-6">
-                      <div class="info-item">
-                        <span class="label">Email</span>
-                        <span class="value">oebrahem123@gmail.com</span>
-                      </div>
-                    </div>
-
-                    <div class="col-6">
-                      <div class="info-item">
-                        <span class="label">Occupation</span>
-                        <span class="value">Full Stack Web Developer</span>
-                      </div>
-                    </div>
-
-                    <div class="col-6">
-                      <div class="info-item">
-                        <span class="label">Nationality</span>
-                        <span class="value">Egyptian</span>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-
-                <div class="signature mt-4">
-                  <div class="signature-image">
-                    <img src="assets/img/misc/signature-1.webp" alt
-                      class="img-fluid">
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section><!-- End About Section -->
-
-      <!-- ======= Skills Section ======= -->
-
-      <section id="skills" class="skills section light-background">
-
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-          <div class="section-title text-center mb-5">
-            <h2>My Skills</h2>
-            <p>Here are the technologies and tools I work with</p>
-          </div>
-
-          <div class="row g-4 skills-animation">
-
-            <div class="col-md-6 col-lg-4" data-aos="fade-up"
-              data-aos-delay="100">
-              <div class="skill-box">
-                <h3>HTML</h3>
-                <p>Building structured and semantic web pages.</p>
-                <span class="text-end d-block">95%</span>
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar"
-                    aria-valuenow="95" aria-valuemin="0"
-                    aria-valuemax="100"></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4" data-aos="fade-up"
-              data-aos-delay="200">
-              <div class="skill-box">
-                <h3>CSS</h3>
-                <p>Creating responsive and modern layouts.</p>
-                <span class="text-end d-block">90%</span>
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar"
-                    aria-valuenow="90" aria-valuemin="0"
-                    aria-valuemax="100"></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4" data-aos="fade-up"
-              data-aos-delay="200">
-              <div class="skill-box">
-                <h3> Bootstrap</h3>
-                <p>Creating responsive and modern layouts.</p>
-                <span class="text-end d-block">90%</span>
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar"
-                    aria-valuenow="90" aria-valuemin="0"
-                    aria-valuemax="100"></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4" data-aos="fade-up"
-              data-aos-delay="300">
-              <div class="skill-box">
-                <h3>JavaScript</h3>
-                <p>Making websites interactive and dynamic.</p>
-                <span class="text-end d-block">85%</span>
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar"
-                    aria-valuenow="85" aria-valuemin="0"
-                    aria-valuemax="100"></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4" data-aos="fade-up"
-              data-aos-delay="400">
-              <div class="skill-box">
-                <h3>PHP</h3>
-                <p>Writing server-side logic and data management.</p>
-                <span class="text-end d-block">80%</span>
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar"
-                    aria-valuenow="80" aria-valuemin="0"
-                    aria-valuemax="100"></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4" data-aos="fade-up"
-              data-aos-delay="500">
-              <div class="skill-box">
-                <h3>Laravel</h3>
-                <p>Developing full-stack web applications efficiently.</p>
-                <span class="text-end d-block">85%</span>
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar"
-                    aria-valuenow="85" aria-valuemin="0"
-                    aria-valuemax="100"></div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <!-- /Skills Section -->
-      <!-- ======= Portfolio Section ======= -->
-
-      <!-- Resume Section -->
-      <section id="resume" class="resume section">
-
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-          <h2>Resume</h2>
-          <div class="title-shape">
-            <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
-              <path d="M 0,10 C 40,0 60,20 100,10 C 140,0 160,20 200,10"
-                fill="none" stroke="currentColor" stroke-width="2"></path>
-            </svg>
-          </div>
-          <p>I’m a passionate web developer who loves turning ideas into
-            interactive and user-friendly websites.
-            Here’s a quick overview of my education, experience, and technical
-            skills.</p>
-
-        </div><!-- End Section Title -->
-
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-          <div class="row">
-            <div class="col-12">
-              <div class="resume-wrapper">
-                <div class="resume-block" data-aos="fade-up">
-
-                  <h2>Work Experience</h2>
-                  <p class="lead">A quick overview of my background, education,
-                    and experience as a Laravel web developer.</p>
-                  <!-- مشروع الأمل  -->
-                  <div class="timeline">
-                    <div class="timeline-item" data-aos="fade-up"
-                      data-aos-delay="200">
-                      <div class="timeline-left">
-                        <h4 class="company">Al-Amal<h6>Charity
-                            Platform</h6></h4>
-                        <span class="period">Jun, 2023</span>
-                      </div>
-                      <div class="timeline-dot"></div>
-                      <div class="timeline-right">
-                        <h5>Full Stack Project — Laravel / PHP / SQL / HTML /
-                          CSS / JS / Bootstrap</h5>
-                        <p><em>Developed & Managed Independently</em></p>
-                        <ul>
-                          <li>Built a complete web system for a charity
-                            organization to manage donations, users, and
-                            activities.</li>
-                          <li>Developed both the front-end (responsive UI using
-                            Bootstrap & JS) <p>and back-end (Laravel + MySQL
-                              database).</li>
-                            <li>Implemented secure authentication, admin
-                              dashboard, and role-based management
-                              features.</li>
-                            <li>Focused on performance, clean design, and easy
-                              navigation for all users.</li>
-                          </ul>
+                    <!-- النص -->
+                    <div class="col-lg-7 text-center text-lg-start">
+                        <h1 class="fw-bold mb-3">I'm <span class="text-primary">Omar EbrahIm</span></h1>
+                        <h2 class="mb-4">Full Stack Developer passionate about building clean and modern web experiences.</h2>
+                        <div class="d-flex justify-content-center justify-content-lg-start gap-3">
+                            <a href="#portfolio" class="btn btn-primary px-4 py-2">View Projects</a>
+                            <a href="assets/cv/Omar Ebrahim Yousef - Web Developer - CV .pdf" class="btn btn-outline-primary px-4 py-2" target="_blank">Download CV</a>
                         </div>
-                      </div>
-                      <!-- مشروع المتجر -->
-                      <div class="timeline-item" data-aos="fade-up"
-                        data-aos-delay="300">
-                        <div class="timeline-left">
-                          <h4 class="company">Omar Store<h6> E-Commerce
-                              Platform</h6></h4>
-                          <h4 class="period">(In Progress)</h4>
-                        </div>
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-right">
-                          <h5>Full-Stack Project — Laravel /
-                            PHP / MySQL / HTML / CSS / JS / Bootstrap</h5>
-                          <p class="description">
-                            <em>Currently Under Development</em>
-                          </p>
-                          <ul>
-                            <li>Designing and developing a full-featured
-                              e-commerce platform with a modern and responsive
-                              user interface.</li>
-                            <li>Building a custom admin dashboard for managing
-                              products, categories, and customer orders.</li>
-                            <li>Implementing authentication, cart functionality,
-                              and checkout system using Laravel 10.</li>
-                            <li>Focusing on user experience, performance
-                              optimization, and clean front-end design.</li>
-                            <li>Continuously updating and refining features as
-                              part of an ongoing development process.</li>
-                          </ul>
-                          <p></p>
-                        </div>
-                      </div>
-                      <!-- مشروع المشروبات -->
-                      <div class="timeline-item" data-aos="fade-up"
-                        data-aos-delay="400">
-                        <div class="timeline-left">
-                          <h4 class="company">Drinks Website.<h6>Product Landing
-                              Page</h6></h4>
-                          <span class="period">2024</span>
-                        </div>
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-right">
-                          <h5>Front-End Project — HTML / CSS /
-                            JavaScript</h5>
-                          <p class="description"><em>Independently Designed &
-                              Developed</em></p>
-                          <ul>
-                            <li>Created a modern and visually appealing landing
-                              page for a drinks brand.</li>
-                            <li>Implemented smooth animations and dynamic
-                              sections using JavaScript.</li>
-                            <li>Designed fully responsive layouts compatible
-                              with all screen sizes.</li>
-                            <li>Focused on clean design, color harmony, and
-                              user-friendly navigation.</li>
-                            <li>Optimized images and scripts for better
-                              performance and faster loading time.</li>
-                          </ul>
-                        </div>
-                      </div>
                     </div>
-                  </div>
-
-                  <div class="resume-block" data-aos="fade-up"
-                    data-aos-delay="100">
-                    <h2>My Education</h2>
-                    <p class="lead"></p>
-
-                    <div class="timeline">
-                      <div class="timeline-item" data-aos="fade-up"
-                        data-aos-delay="200">
-                        <div class="timeline-left">
-                          <h4 class="company">Ras El Bar Institute</h4>
-                          <span class="period">09/2017 - 09/2021</span>
-                        </div>
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-right">
-                          <h3 class="position">Bachelor of Management
-                            Information Systems and Computer Science</h3>
-
-                          <ul>
-                            <li>Studied core computer science subjects including
-                              web development, database systems, and software
-                              engineering.</li>
-                            <li>Completed several academic and personal projects
-                              using PHP, JavaScript, and SQL.</li>
-                            <li>Focused on practical programming, teamwork, and
-                              continuous self-learning.</li>
-                          </ul>
-                        </div>
-                      </div>
-
-                    </div>
-                  </div>
                 </div>
-              </div>
             </div>
+        </section><!-- End Hero Section -->
 
-          </div>
+        <!-- About Section -->
+        <section id="about" class="about section">
+            <div class="section-title text-center mb-5">
+                <h2>About Me</h2>
+                <p>Get to know more about who I am and what I do</p>
+            </div>
+            <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 position-relative aos-init aos-animate" data-aos="fade-right" data-aos-delay="200">
+                        <span class="subtitle">About Me</span>
+                        <h2>Full Stack &amp; Web Developer</h2>
+                        <p class="mb-4">who loves creating modern, fast, and user-friendly web applications. I enjoy working with both front-end and back-end technologies to build clean, responsive, and efficient digital experiences.</p>
+                    </div>
+                    <div class="col-lg-6 aos-init aos-animate" data-aos="fade-left" data-aos-delay="300">
+                        <div class="about-content">
+                            <div class="personal-info">
+                                <div class="row g-4">
+                                    <div class="col-6">
+                                        <div class="info-item">
+                                            <span class="label">Name</span>
+                                            <span class="value">Omar Ebrahim</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="info-item">
+                                            <span class="label">Phone</span>
+                                            <span class="value">+0201023196780</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="info-item">
+                                            <span class="label">Age</span>
+                                            <span class="value">28 Years</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="info-item">
+                                            <span class="label">Email</span>
+                                            <span class="value">oebrahem123@gmail.com</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="info-item">
+                                            <span class="label">Occupation</span>
+                                            <span class="value">Full Stack Web Developer</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="info-item">
+                                            <span class="label">Nationality</span>
+                                            <span class="value">Egyptian</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="signature mt-4">
+                                <div class="signature-image">
+                                    <img src="assets/img/misc/signature-1.webp" alt="Signature" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
 
+        <!-- ======= Skills Section ======= -->
+        <section id="skills" class="skills section light-background">
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div class="section-title text-center mb-5">
+                    <h2>My Skills</h2>
+                    <p>Here are the technologies and tools I work with</p>
+                </div>
+                <div class="row g-4 skills-animation">
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="skill-box">
+                            <h3>HTML</h3>
+                            <p>Building structured and semantic web pages.</p>
+                            <span class="text-end d-block">95%</span>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="skill-box">
+                            <h3>CSS</h3>
+                            <p>Creating responsive and modern layouts.</p>
+                            <span class="text-end d-block">90%</span>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="skill-box">
+                            <h3> Bootstrap</h3>
+                            <p>Creating responsive and modern layouts.</p>
+                            <span class="text-end d-block">90%</span>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="skill-box">
+                            <h3>JavaScript</h3>
+                            <p>Making websites interactive and dynamic.</p>
+                            <span class="text-end d-block">85%</span>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                        <div class="skill-box">
+                            <h3>PHP</h3>
+                            <p>Writing server-side logic and data management.</p>
+                            <span class="text-end d-block">80%</span>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                        <div class="skill-box">
+                            <h3>Laravel</h3>
+                            <p>Developing full-stack web applications efficiently.</p>
+                            <span class="text-end d-block">85%</span>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume Section -->
+        <section id="resume" class="resume section">
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Resume</h2>
+                <div class="title-shape">
+                    <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 0,10 C 40,0 60,20 100,10 C 140,0 160,20 200,10" fill="none" stroke="currentColor" stroke-width="2"></path>
+                    </svg>
+                </div>
+                <p>I'm a passionate web developer who loves turning ideas into interactive and user-friendly websites. Here's a quick overview of my education, experience, and technical skills.</p>
+            </div><!-- End Section Title -->
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="resume-wrapper">
+                            <div class="resume-block" data-aos="fade-up">
+                                <h2>Work Experience</h2>
+                                <p class="lead">A quick overview of my background, education, and experience as a Laravel web developer.</p>
+                                <!-- مشروع الأمل  -->
+                                <div class="timeline">
+                                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                                        <div class="timeline-left">
+                                            <h4 class="company">Al-Amal<h6>Charity Platform</h6></h4>
+                                            <span class="period">Jun, 2023</span>
+                                        </div>
+                                        <div class="timeline-dot"></div>
+                                        <div class="timeline-right">
+                                            <h5>Full Stack Project — Laravel / PHP / SQL / HTML / CSS / JS / Bootstrap</h5>
+                                            <p><em>Developed & Managed Independently</em></p>
+                                            <ul>
+                                                <li>Built a complete web system for a charity organization to manage donations, users, and activities.</li>
+                                                <li>Developed both the front-end (responsive UI using Bootstrap & JS) and back-end (Laravel + MySQL database).</li>
+                                                <li>Implemented secure authentication, admin dashboard, and role-based management features.</li>
+                                                <li>Focused on performance, clean design, and easy navigation for all users.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- مشروع المتجر -->
+                                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+                                        <div class="timeline-left">
+                                            <h4 class="company">Omar Store<h6> E-Commerce Platform</h6></h4>
+                                            <h4 class="period">(In Progress)</h4>
+                                        </div>
+                                        <div class="timeline-dot"></div>
+                                        <div class="timeline-right">
+                                            <h5>Full-Stack Project — Laravel / PHP / MySQL / HTML / CSS / JS / Bootstrap</h5>
+                                            <p class="description">
+                                                <em>Currently Under Development</em>
+                                            </p>
+                                            <ul>
+                                                <li>Designing and developing a full-featured e-commerce platform with a modern and responsive user interface.</li>
+                                                <li>Building a custom admin dashboard for managing products, categories, and customer orders.</li>
+                                                <li>Implementing authentication, cart functionality, and checkout system using Laravel 10.</li>
+                                                <li>Focusing on user experience, performance optimization, and clean front-end design.</li>
+                                                <li>Continuously updating and refining features as part of an ongoing development process.</li>
+                                            </ul>
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                    <!-- مشروع المشروبات -->
+                                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+                                        <div class="timeline-left">
+                                            <h4 class="company">Drinks Website.<h6>Product Landing Page</h6></h4>
+                                            <span class="period">2024</span>
+                                        </div>
+                                        <div class="timeline-dot"></div>
+                                        <div class="timeline-right">
+                                            <h5>Front-End Project — HTML / CSS / JavaScript</h5>
+                                            <p class="description"><em>Independently Designed & Developed</em></p>
+                                            <ul>
+                                                <li>Created a modern and visually appealing landing page for a drinks brand.</li>
+                                                <li>Implemented smooth animations and dynamic sections using JavaScript.</li>
+                                                <li>Designed fully responsive layouts compatible with all screen sizes.</li>
+                                                <li>Focused on clean design, color harmony, and user-friendly navigation.</li>
+                                                <li>Optimized images and scripts for better performance and faster loading time.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="resume-block" data-aos="fade-up" data-aos-delay="100">
+                                <h2>My Education</h2>
+                                <p class="lead"></p>
+
+                                <div class="timeline">
+                                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                                        <div class="timeline-left">
+                                            <h4 class="company">Ras El Bar Institute</h4>
+                                            <span class="period">09/2017 - 09/2021</span>
+                                        </div>
+                                        <div class="timeline-dot"></div>
+                                        <div class="timeline-right">
+                                            <h3 class="position">Bachelor of Management Information Systems and Computer Science</h3>
+                                            <ul>
+                                                <li>Studied core computer science subjects including web development, database systems, and software engineering.</li>
+                                                <li>Completed several academic and personal projects using PHP, JavaScript, and SQL.</li>
+                                                <li>Focused on practical programming, teamwork, and continuous self-learning.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section><!-- /Resume Section -->
 
         <!-- Portfolio Section -->
         <section id="portfolio" class="portfolio section light-background">
-          <!-- Section Title -->
-          <div class="container section-title" data-aos="fade-up">
-            <h2>Portfolio</h2>
-            <div class="title-shape">
-              <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
-                <path d="M 0,10 C 40,0 60,20 100,10 C 140,0 160,20 200,10"
-                  fill="none" stroke="currentColor" stroke-width="2"></path>
-              </svg>
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Portfolio</h2>
+                <div class="title-shape">
+                    <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 0,10 C 40,0 60,20 100,10 C 140,0 160,20 200,10" fill="none" stroke="currentColor" stroke-width="2"></path>
+                    </svg>
+                </div>
+                <p>Here are some of my projects showcasing my skills in web development, including responsive design, interactive features, and efficient coding practices.</p>
+            </div><!-- End Section Title -->
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+                    <div class="row g-4 isotope-container" data-aos="fade-up" data-aos-delay="300">
+                        <!-------------------------------- project 1 ----------------->
+                        <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-web">
+                            <div class="portfolio-card expandable">
+                                <div class="portfolio-image">
+                                    <img src="assets/img/project/project1/alamal-1.png" class="img-fluid" alt="Al Amal Project">
+                                    <div class="portfolio-overlay">
+                                        <div class="portfolio-actions">
+                                            <button class="expand-btn"><i class="bi bi-eye"></i></button>
+                                            <a href="https://oebrahem123.github.io/alamaal/" target="_blank" class="details-link" title="GitHub">
+                                                <i class="bi bi-github"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="portfolio-content">
+                                    <span class="category">web site</span>
+                                    <h3>Project Al-Amal</h3>
+                                    <p>Full Stack Project — Laravel / PHP / SQL / HTML / CSS / JS / Bootstrap.</p>
+                                </div>
+                                <!-- Extra Content يظهر لما تفتح -->
+                                <div class="extra-content">
+                                    <p>This project is a full-featured charity platform that manages donations, users, and activities. I implemented both the front-end using Bootstrap & JavaScript and the back-end using Laravel & SQL, ensuring responsive design and secure data handling.</p>
+                                </div>
+                                <!-- الصور اللي هتظهر بعد الفتح -->
+                                <div class="extra-images">
+                                    <img src="assets/img/project/project1/alamal-2.png" class="extra-img" alt="Al Amal Project">
+                                    <img src="assets/img/project/project1/alamal-3.png" class="extra-img" alt="Al Amal Project">
+                                    <img src="assets/img/project/project1/alamal-4.png" class="extra-img" alt="Al Amal Project">
+                                </div>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+
+                        <!-- project 2 -->
+                        <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-graphics">
+                            <div class="portfolio-card expandable">
+                                <div class="portfolio-image">
+                                    <img src="assets/img/project/project2/drinks-2.png" class="img-fluid" alt="Drinks Project">
+                                    <div class="portfolio-overlay">
+                                        <div class="portfolio-actions">
+                                            <button class="expand-btn"><i class="bi bi-eye"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="portfolio-content">
+                                    <span class="category">web site</span>
+                                    <h3>Drinks Website.</h3>
+                                    <p>Front-End Project — HTML / CSS / JavaScript.</p>
+                                </div>
+                                <!-- Extra Content يظهر لما تفتح -->
+                                <div class="extra-content">
+                                    <p>"An interactive beverage store project where selecting a product dynamically changes the background, colors, and visuals, creating an engaging and immersive shopping experience."</p>
+                                </div>
+                                <!-- الصور الإضافية اللي هتظهر بعد الفتح -->
+                                <div class="extra-images">
+                                    <img src="assets/img/project/project2/drinks-3.png" class="extra-img" alt="Drinks Project">
+                                    <img src="assets/img/project/project2/drinks-4.png" class="extra-img" alt="Drinks Project">
+                                    <img src="assets/img/project/project2/drinks-5.png" class="extra-img" alt="Drinks Project">
+                                </div>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+
+                        <!-- باقي المشاريع بنفس النمط -->
+                        <!-- project 3 -->
+                        <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-web">
+                            <div class="portfolio-card expandable">
+                                <div class="portfolio-image">
+                                    <img src="assets/img/project/project4/img3.png" class="img-fluid" alt="Clock Project">
+                                    <div class="portfolio-overlay">
+                                        <div class="portfolio-actions">
+                                            <button class="expand-btn"><i class="bi bi-eye"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="portfolio-content">
+                                    <span class="category">Web Site</span>
+                                    <h3>Clock & Date Project</h3>
+                                    <p>Training project — HTML / CSS / JavaScript.</p>
+                                </div>
+                                <div class="extra-content">
+                                    <p>This project is a dynamic clock and date display built as a training exercise. It demonstrates practical skills in JavaScript for real-time updates, along with responsive styling using HTML and CSS.</p>
+                                </div>
+                                <div class="extra-images">
+                                    <img src="assets/img/project/project4/img1.png" class="extra-img" alt="Clock Project">
+                                    <img src="assets/img/project/project4/img2.png" class="extra-img" alt="Clock Project">
+                                    <img src="assets/img/project/project4/img3.png" class="extra-img" alt="Clock Project">
+                                </div>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+
+                        <!-- project 4 -->
+                        <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-web">
+                            <div class="portfolio-card expandable">
+                                <div class="portfolio-image">
+                                    <img src="assets/img/project/project3/start.png" class="img-fluid" alt="Educational Platform">
+                                    <div class="portfolio-overlay">
+                                        <div class="portfolio-actions">
+                                            <button class="expand-btn"><i class="bi bi-eye"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="portfolio-content">
+                                    <span class="category">Web Site</span>
+                                    <h3>Educational Platform</h3>
+                                    <p>Web-based educational platform — HTML / CSS / JavaScript.</p>
+                                </div>
+                                <div class="extra-content">
+                                    <p>This educational platform is designed to provide an interactive and user-friendly learning experience. It features structured lessons, intuitive navigation, and engaging interactive elements to help users learn efficiently using HTML, CSS, and JavaScript.</p>
+                                </div>
+                                <div class="extra-images">
+                                    <img src="assets/img/project/project3/start3.png" class="extra-img" alt="Educational Platform">
+                                    <img src="assets/img/project/project3/start4.png" class="extra-img" alt="Educational Platform">
+                                    <img src="assets/img/project/project3/start2.png" class="extra-img" alt="Educational Platform">
+                                </div>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+
+                        <!-- project 5 -->
+                        <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-web">
+                            <div class="portfolio-card expandable">
+                                <div class="portfolio-image">
+                                    <img src="assets/img/project/project5/img.png" class="img-fluid" alt="Charity Dashboard">
+                                    <div class="portfolio-overlay">
+                                        <div class="portfolio-actions">
+                                            <button class="expand-btn"><i class="bi bi-eye"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="portfolio-content">
+                                    <span class="category">Web Site</span>
+                                    <h3>Charity Dashboard</h3>
+                                    <p>Full Stack Project — Laravel / PHP / SQL / HTML / CSS / JS / Bootstrap.</p>
+                                </div>
+                                <div class="extra-content">
+                                    <p>This Charity Dashboard is a complete management system built with Laravel and SQL, allowing the organization to handle donations, user accounts, and activities efficiently. The dashboard features responsive design, secure data handling, and interactive reporting tools for administrators.</p>
+                                </div>
+                                <div class="extra-images">
+                                    <img src="assets/img/project/project5/img1.png" class="extra-img" alt="Charity Dashboard">
+                                    <img src="assets/img/project/project5/project.png" class="extra-img" alt="Charity Dashboard">
+                                    <img src="assets/img/project/project5/img4.png" class="extra-img" alt="Charity Dashboard">
+                                </div>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+
+                        <!-- project 6 -->
+                        <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-web">
+                            <div class="portfolio-card expandable">
+                                <div class="portfolio-image">
+                                    <img src="assets/img/project/project6/home.gif" class="img-fluid" alt="Omar Store">
+                                    <div class="portfolio-overlay">
+                                        <div class="portfolio-actions">
+                                            <button class="expand-btn"><i class="bi bi-eye"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="portfolio-content">
+                                    <span class="category">Web Site</span>
+                                    <h3>Omar Store</h3>
+                                    <p>E-commerce website — HTML / CSS / JavaScript / Bootstrap.</p>
+                                </div>
+                                <div class="extra-content">
+                                    <p>Omar Store is a modern e-commerce website built using HTML, CSS, JavaScript, and Bootstrap. It allows users to browse and purchase products through a clean and responsive interface. The design focuses on smooth navigation, attractive product display, and a simple, user-friendly shopping experience.</p>
+                                </div>
+                                <div class="extra-images">
+                                    <img src="assets/img/project/project6/home2.png" class="extra-img" alt="Omar Store">
+                                    <img src="assets/img/project/project6/home3.png" class="extra-img" alt="Omar Store">
+                                    <img src="assets/img/project/project6/home4.png" class="extra-img" alt="Omar Store">
+                                    <img src="assets/img/project/project6/home5.png" class="extra-img" alt="Omar Store">
+                                </div>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+
+                        <!-- project 7 -->
+                        <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-web">
+                            <div class="portfolio-card expandable">
+                                <div class="portfolio-image">
+                                    <img src="assets/img/project/project7/last.png" class="img-fluid" alt="Admin Dashboard">
+                                    <div class="portfolio-overlay">
+                                        <div class="portfolio-actions">
+                                            <button class="expand-btn"><i class="bi bi-eye"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="portfolio-content">
+                                    <span class="category">Web Application</span>
+                                    <h3>Admin Dashboard System</h3>
+                                    <p>Advanced Laravel project — Laravel / PHP / SQL / Authentication / Pagination / Activity Log.</p>
+                                </div>
+                                <div class="extra-content">
+                                    <p>This Admin Dashboard System is a full-featured web application built with Laravel and SQL. It includes a secure authentication system, pagination for data management, and a detailed activity log that tracks user actions such as adding, editing, or deleting records. The project focuses on clean architecture, responsive design, and efficient database handling to provide administrators with full control and transparency over platform operations.</p>
+                                </div>
+                                <div class="extra-images">
+                                    <img src="assets/img/project/project7/last2.png" class="extra-img" alt="Admin Dashboard">
+                                    <img src="assets/img/project/project7/last3.png" class="extra-img" alt="Admin Dashboard">
+                                    <img src="assets/img/project/project7/last4.png" class="extra-img" alt="Admin Dashboard">
+                                    <img src="assets/img/project/project7/last5.png" class="extra-img" alt="Admin Dashboard">
+                                </div>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+
+                        <!-- project 8 -->
+                        <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-web">
+                            <div class="portfolio-card expandable">
+                                <div class="portfolio-image">
+                                    <img src="assets/img/project/project8/home.png" class="img-fluid" alt="Authentication System">
+                                    <div class="portfolio-overlay">
+                                        <div class="portfolio-actions">
+                                            <button class="expand-btn"><i class="bi bi-eye"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="portfolio-content">
+                                    <span class="category">Web Application</span>
+                                    <h3>Authentication System</h3>
+                                    <p>Backend Project — Laravel / PHP / SQL / Authentication / Validation.</p>
+                                </div>
+                                <div class="extra-content">
+                                    <p>This Authentication System is built with Laravel and SQL to provide secure user registration and login functionality. It includes form validation, password encryption, and user session management. The design ensures both security and simplicity, offering a smooth experience for new and returning users.</p>
+                                </div>
+                                <div class="extra-images">
+                                    <img src="assets/img/project/project8/home.png" class="extra-img" alt="Authentication System">
+                                    <img src="assets/img/project/project8/last1.png" class="extra-img" alt="Authentication System">
+                                    <img src="assets/img/project/project8/last2.png" class="extra-img" alt="Authentication System">
+                                    <img src="assets/img/project/project8/last3.png" class="extra-img" alt="Authentication System">
+                                </div>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+                    </div><!-- End Portfolio Container -->
+                </div>
             </div>
-            <p>Here are some of my projects showcasing my skills in web
-              development, including responsive design, interactive features,
-              and efficient coding practices.</p>
-          </div><!-- End Section Title -->
-
-          <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="isotope-layout" data-default-filter="*"
-              data-layout="masonry" data-sort="original-order">
-
-              <div class="row g-4 isotope-container" data-aos="fade-up"
-                data-aos-delay="300">
-                <!-------------------------------- project 1 ----------------->
-
-                <div
-                  class="col-lg-6 col-md-6 portfolio-item isotope-item filter-web">
-                  <div class="portfolio-card expandable">
-                    <div class="portfolio-image">
-                      <img
-                        src="assets/img/project/project1/alamal-1.png"
-                        class="img-fluid" alt>
-
-                      <div class="portfolio-overlay">
-                        <div class="portfolio-actions">
-                          <button class="expand-btn"><i
-                              class="bi bi-eye"></i></button>
-                          <a href="https://oebrahem123.github.io/alamaal/"
-                            target="_blank"
-                            class="details-link" title="GitHub">
-                            <i class="bi bi-github"></i>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="portfolio-content">
-                      <span class="category">web site</span>
-                      <h3>Project Al-Amal</h3>
-                      <p>Full Stack Project — Laravel / PHP / SQL / HTML / CSS /
-                        JS / Bootstrap.</p>
-                    </div>
-
-                    <!-- Extra Content يظهر لما تفتح -->
-                    <div class="extra-content">
-
-                      <p>This project is a full-featured charity platform that
-                        manages donations, users, and activities.
-                        I implemented both the front-end using Bootstrap &
-                        JavaScript and the back-end using Laravel & SQL,
-                        ensuring responsive design and secure data handling.</p>
-                    </div>
-                    <!-- الصور اللي هتظهر بعد الفتح -->
-                    <div class="extra-images">
-                      <img
-                        src="assets/img/project/project1/alamal-2.png"
-                        class="extra-img" alt>
-                      <img
-                        src="assets/img/project/project1/alamal-3.png"
-                        class="extra-img" alt>
-                      <img
-                        src="assets/img/project/project1/alamal-4.png"
-                        class="extra-img" alt>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- End Portfolio Item -->
-
-                <!-- project 2 -->
-
-                <div
-                  class="col-lg-6 col-md-6 portfolio-item isotope-item filter-graphics">
-                  <div class="portfolio-card expandable">
-                    <div class="portfolio-image">
-                      <img
-                        src="assets/img/project/project2/drinks-2.png"
-                        class="img-fluid" alt loading="lazy">
-
-                      <div class="portfolio-overlay">
-                        <div class="portfolio-actions">
-                          <button class="expand-btn"><i
-                              class="bi bi-eye"></i></button>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="portfolio-content">
-                      <span class="category">web site</span>
-                      <h3>Drinks Website.</h3>
-                      <p>Front-End Project — HTML / CSS / JavaScript.</p>
-                    </div>
-                    <!-- Extra Content يظهر لما تفتح -->
-                    <div class="extra-content">
-                      <p>"An interactive beverage store project where selecting a product dynamically changes the background, colors, and visuals, creating an engaging and immersive shopping experience."</p>
-                    </div>
-                    <!-- الصور الإضافية اللي هتظهر بعد الفتح -->
-                    <div class="extra-images">
-                      <img
-                        src="assets/img/project/project2/drinks-3.png"
-                        class="extra-img" alt="Brand Identity 1">
-                      <img
-                        src="assets/img/project/project2/drinks-4.png"
-                        class="extra-img" alt="Brand Identity 2">
-                      <img
-                        src="assets/img/project/project2/drinks-5.png"
-                        class="extra-img" alt="Brand Identity 3">
-                      <!-- زود أي صور إضافية عندك -->
-                    </div>
-                  </div>
-                </div>
-                <!-- End Portfolio Item -->
-                <!-- End Portfolio Item -->
-
-                <!-- project 3 -->
-                <div
-                  class="col-lg-6 col-md-6 portfolio-item isotope-item filter-web">
-                  <div class="portfolio-card expandable">
-                    <div class="portfolio-image">
-                      <img src="assets/img/project/project4/img3.png"
-                        class="img-fluid" alt>
-
-                      <div class="portfolio-overlay">
-                        <div class="portfolio-actions">
-                          <button class="expand-btn"><i
-                              class="bi bi-eye"></i></button>
-                         
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="portfolio-content">
-                      <span class="category">Web Site</span>
-                      <h3>Clock & Date Project</h3>
-                      <p>Training project — HTML / CSS / JavaScript.</p>
-                    </div>
-
-                    <!-- Extra Content يظهر لما تفتح -->
-                    <div class="extra-content">
-                      <p>This project is a dynamic clock and date display built
-                        as a training exercise.
-                        It demonstrates practical skills in JavaScript for
-                        real-time updates, along with responsive styling using
-                        HTML and CSS.</p>
-                    </div>
-
-                    <!-- Extra Images -->
-                    <div class="extra-images">
-                      <img src="assets/img/project/project4/img1.png"
-                        class="extra-img" alt>
-                      <img src="assets/img/project/project4/img2.png"
-                        class="extra-img" alt>
-                      <img src="assets/img/project/project4/img3.png"
-                        class="extra-img" alt>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- End Portfolio Item -->
-                <!-- project 4 -->
-                <div
-                  class="col-lg-6 col-md-6 portfolio-item isotope-item filter-web">
-                  <div class="portfolio-card expandable">
-                    <div class="portfolio-image">
-                      <img src="assets/img/project/project3/start.png"
-                        class="img-fluid" alt>
-
-                      <div class="portfolio-overlay">
-                        <div class="portfolio-actions">
-                          <button class="expand-btn"><i
-                              class="bi bi-eye"></i></button> 
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="portfolio-content">
-                      <span class="category">Web Site</span>
-                      <h3>Educational Platform</h3>
-                      <p>Web-based educational platform — HTML / CSS /
-                        JavaScript.</p>
-                    </div>
-
-                    <!-- Extra Content يظهر لما تفتح -->
-                    <div class="extra-content">
-                      <p>This educational platform is designed to provide an
-                        interactive and user-friendly learning experience.
-                        It features structured lessons, intuitive navigation,
-                        and engaging interactive elements to help users learn
-                        efficiently using HTML, CSS, and JavaScript.</p>
-                    </div>
-
-                    <!-- Extra Images -->
-                    <div class="extra-images">
-                      <img src="assets/img/project/project3/start3.png"
-                        class="extra-img" alt>
-                      <img src="assets/img/project/project3/start4.png"
-                        class="extra-img" alt>
-                      <img src="assets/img/project/project3/start2.png"
-                        class="extra-img" alt>
-                    </div>
-                  </div>
-                </div>
-                <!-- End Portfolio Item -->
-                <!-- project 5 -->
-                <div
-                  class="col-lg-6 col-md-6 portfolio-item isotope-item filter-web">
-                  <div class="portfolio-card expandable">
-                    <div class="portfolio-image">
-                      <img src="assets/img/project/project5/img.png"
-                        class="img-fluid" alt>
-
-                      <div class="portfolio-overlay">
-                        <div class="portfolio-actions">
-                          <button class="expand-btn"><i
-                              class="bi bi-eye"></i></button>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="portfolio-content">
-                      <span class="category">Web Site</span>
-                      <h3>Charity Dashboard</h3>
-                      <p>Full Stack Project — Laravel / PHP / SQL / HTML / CSS /
-                        JS / Bootstrap.</p>
-                    </div>
-
-                    <!-- Extra Content يظهر لما تفتح -->
-                    <div class="extra-content">
-                      <p>This Charity Dashboard is a complete management system
-                        built with Laravel and SQL, allowing the organization to
-                        handle donations, user accounts, and activities
-                        efficiently.
-                        The dashboard features responsive design, secure data
-                        handling, and interactive reporting tools for
-                        administrators.</p>
-                    </div>
-
-                    <!-- Extra Images -->
-                    <div class="extra-images">
-                      <img src="assets/img/project/project5/img1.png"
-                        class="extra-img" alt>
-                      <img src="assets/img/project/project5/project.png"
-                        class="extra-img" alt>
-                      <img src="assets/img/project/project5/img4.png"
-                        class="extra-img" alt>
-                    </div>
-                  </div>
-                </div><!-- End Portfolio Item -->
-
-                <!-- project 6 -->
-                <div
-                  class="col-lg-6 col-md-6 portfolio-item isotope-item filter-web">
-                  <div class="portfolio-card expandable">
-                    <div class="portfolio-image">
-                      <img src="assets/img/project/project6/home.gif"
-                        class="img-fluid" alt>
-
-                      <div class="portfolio-overlay">
-                        <div class="portfolio-actions">
-                          <button class="expand-btn"><i
-                              class="bi bi-eye"></i></button>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="portfolio-content">
-                      <span class="category">Web Site</span>
-                      <h3>Omar Store</h3>
-                      <p>E-commerce website — HTML / CSS / JavaScript /
-                        Bootstrap.</p>
-                    </div>
-
-                    <!-- Extra Content يظهر لما تفتح -->
-                    <div class="extra-content">
-                      <p>Omar Store is a modern e-commerce website built using
-                        HTML, CSS, JavaScript, and Bootstrap.
-                        It allows users to browse and purchase products through
-                        a clean and responsive interface.
-                        The design focuses on smooth navigation, attractive
-                        product display, and a simple, user-friendly shopping
-                        experience.</p>
-                    </div>
-
-                    <!-- Extra Images -->
-                    <div class="extra-images">
-                      <img src="assets/img/project/project6/home2.png"
-                        class="extra-img" alt>
-                      <img src="assets/img/project/project6/home3.png"
-                        class="extra-img" alt>
-                      <img src="assets/img/project/project6/home4.png"
-                        class="extra-img" alt>
-                      <img src="assets/img/project/project6/home5.png"
-                        class="extra-img" alt>
-                    </div>
-                  </div>
-                </div>
-                <!-- End Portfolio Item -->
-
-                <!-- project 7 -->
-                <div
-                  class="col-lg-6 col-md-6 portfolio-item isotope-item filter-web">
-                  <div class="portfolio-card expandable">
-                    <div class="portfolio-image">
-                      <img src="assets/img/project/project7/last.png"
-                        class="img-fluid" alt>
-
-                      <div class="portfolio-overlay">
-                        <div class="portfolio-actions">
-                          <button class="expand-btn"><i
-                              class="bi bi-eye"></i></button>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="portfolio-content">
-                      <span class="category">Web Application</span>
-                      <h3>Admin Dashboard System</h3>
-                      <p>Advanced Laravel project — Laravel / PHP / SQL /
-                        Authentication / Pagination / Activity Log.</p>
-                    </div>
-
-                    <!-- Extra Content يظهر لما تفتح -->
-                    <div class="extra-content">
-                      <p>This Admin Dashboard System is a full-featured web
-                        application built with Laravel and SQL.
-                        It includes a secure authentication system, pagination
-                        for data management, and a detailed activity log that
-                        tracks user actions such as adding, editing, or deleting
-                        records.
-                        The project focuses on clean architecture, responsive
-                        design, and efficient database handling to provide
-                        administrators with full control and transparency over
-                        platform operations.</p>
-                    </div>
-
-                    <!-- Extra Images -->
-                    <div class="extra-images">
-                      <img src="assets/img/project/project7/last2.png"
-                        class="extra-img" alt>
-                      <img src="assets/img/project/project7/last3.png"
-                        class="extra-img" alt>
-                      <img src="assets/img/project/project7/last4.png"
-                        class="extra-img" alt>
-                      <img src="assets/img/project/project7/last5.png"
-                        class="extra-img" alt>
-                    </div>
-                  </div>
-                </div>
-                <!-- End Portfolio Item -->
-
-                <!-- project 8 -->
-                <div
-                  class="col-lg-6 col-md-6 portfolio-item isotope-item filter-web">
-                  <div class="portfolio-card expandable">
-                    <div class="portfolio-image">
-                      <img src="assets/img/project/project8/home.png"
-                        class="img-fluid" alt>
-
-                      <div class="portfolio-overlay">
-                        <div class="portfolio-actions">
-                          <button class="expand-btn"><i
-                              class="bi bi-eye"></i></button>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="portfolio-content">
-                      <span class="category">Web Application</span>
-                      <h3>Authentication System</h3>
-                      <p>Backend Project — Laravel / PHP / SQL / Authentication
-                        / Validation.</p>
-                    </div>
-
-                    <!-- Extra Content يظهر لما تفتح -->
-                    <div class="extra-content">
-                      <p>This Authentication System is built with Laravel and
-                        SQL to provide secure user registration and login
-                        functionality.
-                        It includes form validation, password encryption, and
-                        user session management.
-                        The design ensures both security and simplicity,
-                        offering a smooth experience for new and returning
-                        users.</p>
-                    </div>
-
-                    <!-- Extra Images -->
-                    <div class="extra-images">
-                      <img src="assets/img/project/project8/home.png"
-                        class="extra-img" alt>
-                      <img src="assets/img/project/project8/last1.png"
-                        class="extra-img" alt>
-                      <img src="assets/img/project/project8/last2.png"
-                        class="extra-img" alt>
-                      <img src="assets/img/project/project8/last3.png"
-                        class="extra-img" alt>
-                    </div>
-                  </div>
-                </div>
-                <!-- End Portfolio Item -->
-              </div><!-- End Portfolio Container -->
-
-            </div>
-
-          </div>
-
-        </section>
-        <!-- /Portfolio Section -->
+        </section><!-- /Portfolio Section -->
 
         <!-- testimonials -->
         <section id="testimonials" class="testimonials section ">
-          <!-- Section Title -->
-          <div class="container section-title" data-aos="fade-up">
-            <h2>Testimonials</h2>
-            <div class="title-shape"></div>
-            <p>
-              Here are some of my professional certificates and completed
-              training programs that enhanced my technical and personal skills.
-            </p>
-          </div>
-          <!-- End Section Title -->
-
-          <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-            <!-- Testimonial Item -->
-            <div class="testimonial-item mb-5">
-              <div class="row">
-                <div class="col-lg-8">
-                  <h2>Bachelor's Degree in Management Information Systems (MIS)
-                    - 2021</h2>
-                  <p>"I hold a Bachelor's Degree in Management Information Systems (MIS), obtained in May 2021. This specialized degree has equipped me with a robust foundation at the strategic intersection of technology and business management."</p>
-                  <p>My studies focused heavily on Information Systems
-                    Engineering, granting me advanced proficiency in Database
-                    Design and Management, alongside hands-on experience in
-                    development and programming necessary to analyze and build
-                    effective technological solutions. Graduating with an
-                    overall grade of 'Good', I have proven my competency and
-                    dedication to utilizing this knowledge in creating and
-                    maintaining complex digital systems.</p>
-                  <span class="period" style="color: #e87532;">May 2021</span>
-                </div>
-                <div class="col-lg-4 d-none d-lg-block">
-                  <div class="featured-img-wrapper">
-                    <img src="assets/img/Testimonials/CamScanner 2 (2).jpg"
-                      class="featured-img" alt>
-                  </div>
-                </div>
-                <!-- الزر دا للموبايل فقط -->
-                <div class="d-lg-none text-center">
-                  <button class="view-certificate-btn"
-                    onclick="openCertificate('assets/img/Testimonials/CamScanner 2 (2).jpg')">
-                    View Certificate
-                  </button>
-                </div>
-                <div id="certificateModal" class="certificate-modal">
-                  <span class="close-btn"
-                    onclick="closeCertificate()">&times;</span>
-                  <img id="certificateImg" src alt="Certificate">
-                </div>
-                <!--  إنتهاء الزر دا للموبايل فقط -->
-              </div>
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Testimonials</h2>
+                <div class="title-shape"></div>
+                <p>Here are some of my professional certificates and completed training programs that enhanced my technical and personal skills.</p>
             </div>
+            <!-- End Section Title -->
 
-            <!-- Testimonial Item -->
-            <div class="testimonial-item mb-5">
-              <div class="row">
-                <div class="col-lg-8">
-                  <h2>Certification: Basic Business Skills Acquisition (72
-                    Hrs)</h2>
-                  <p>"In September 2021, I successfully completed the Basic Business Skills Acquisition (BBSA) Program offered by Delaware American University. This intensive program, totaling 72 hours of attendance, was specifically designed to meet labor market requirements. It significantly enhanced my foundational proficiency in English Language (Level 1), provided solid training in Business Administration, and critically focused on developing essential Soft Skills necessary for effective professional interaction, communication, and workplace collaboration."</p>
-                  <span class="period" style="color: #e87532;">September
-                    2021</span>
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <!-- Testimonial Item -->
+                <div class="testimonial-item mb-5">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <h2>Bachelor's Degree in Management Information Systems (MIS) - 2021</h2>
+                            <p>"I hold a Bachelor's Degree in Management Information Systems (MIS), obtained in May 2021. This specialized degree has equipped me with a robust foundation at the strategic intersection of technology and business management."</p>
+                            <p>My studies focused heavily on Information Systems Engineering, granting me advanced proficiency in Database Design and Management, alongside hands-on experience in development and programming necessary to analyze and build effective technological solutions. Graduating with an overall grade of 'Good', I have proven my competency and dedication to utilizing this knowledge in creating and maintaining complex digital systems.</p>
+                            <span class="period" style="color: #e87532;">May 2021</span>
+                        </div>
+                        <div class="col-lg-4 d-none d-lg-block">
+                            <div class="featured-img-wrapper">
+                                <img src="assets/img/Testimonials/CamScanner 2 (2).jpg" class="featured-img" alt="Bachelor Degree Certificate">
+                            </div>
+                        </div>
+                        <!-- الزر دا للموبايل فقط -->
+                        <div class="d-lg-none text-center">
+                            <button class="view-certificate-btn" onclick="openCertificate('assets/img/Testimonials/CamScanner 2 (2).jpg')">View Certificate</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-4 d-none d-lg-block">
-                  <div class="featured-img-wrapper">
-                    <img src="assets/img/Testimonials/CamScanner 3.jpg"
-                      class="featured-img" alt>
-                  </div>
+
+                <!-- Testimonial Item -->
+                <div class="testimonial-item mb-5">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <h2>Certification: Basic Business Skills Acquisition (72 Hrs)</h2>
+                            <p>"In September 2021, I successfully completed the Basic Business Skills Acquisition (BBSA) Program offered by Delaware American University. This intensive program, totaling 72 hours of attendance, was specifically designed to meet labor market requirements. It significantly enhanced my foundational proficiency in English Language (Level 1), provided solid training in Business Administration, and critically focused on developing essential Soft Skills necessary for effective professional interaction, communication, and workplace collaboration."</p>
+                            <span class="period" style="color: #e87532;">September 2021</span>
+                        </div>
+                        <div class="col-lg-4 d-none d-lg-block">
+                            <div class="featured-img-wrapper">
+                                <img src="assets/img/Testimonials/CamScanner 3.jpg" class="featured-img" alt="Business Skills Certificate">
+                            </div>
+                        </div>
+                        <!-- الزر دا للموبايل فقط -->
+                        <div class="d-lg-none text-center">
+                            <button class="view-certificate-btn" onclick="openCertificate('assets/img/Testimonials/CamScanner 3.jpg')">View Certificate</button>
+                        </div>
+                    </div>
                 </div>
-                <!-- الزر دا للموبايل فقط -->
-                <div class="d-lg-none text-center">
-                  <button class="view-certificate-btn"
-                    onclick="openCertificate('assets/img/Testimonials/CamScanner 3.jpg')">
-                    View Certificate
-                  </button>
+
+                <!-- Testimonial Item -->
+                <div class="testimonial-item mb-5">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <h2>Certificate of Appreciation for Academic Excellence (2021)</h2>
+                            <p>I was honored to receive a Certificate of Appreciation (Ta'deer) from the Board of Directors of the Ras El Bar Higher Institute for Specific Studies and Computer Science. This prestigious recognition was awarded for my outstanding academic excellence and superior performance demonstrated throughout my entire course of study and upon graduation in the academic year 2020/2021.</p>
+                            <p>This commendation underscores my unwavering commitment to achieving distinction and exceptional results in my educational journey, proving my dedication to professionalism and success in my career path.</p>
+                            <span class="period" style="color: #e87532;">2021</span>
+                        </div>
+                        <div class="col-lg-4 d-none d-lg-block">
+                            <div class="featured-img-wrapper">
+                                <img src="assets/img/Testimonials/CamScanner4.jpg" class="featured-img" alt="Appreciation Certificate">
+                            </div>
+                        </div>
+                        <!-- الزر دا للموبايل فقط -->
+                        <div class="d-lg-none text-center">
+                            <button class="view-certificate-btn" onclick="openCertificate('assets/img/Testimonials/CamScanner4.jpg')">View Certificate</button>
+                        </div>
+                    </div>
                 </div>
-                <div id="certificateModal" class="certificate-modal">
-                  <span class="close-btn"
-                    onclick="closeCertificate()">&times;</span>
-                  <img id="certificateImg" src alt="Certificate">
+
+                <!-- Testimonial Item -->
+                <div class="testimonial-item mb-5">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <h2>Mastery Certification: Professional English Conversation</h2>
+                            <p>I am proud to highlight the successful completion of the Professional Training in English Conversation program in 2022. This rigorous, 36-hour intensive program was strategically delivered by the esteemed American Council , in conjunction with the Ministry of Communications and Information Technology, underscoring its significant governmental endorsement and quality.</p>
+                            <p>The certification serves as a robust testament to my mastery of advanced English conversational skills. More profoundly, it validates my exceptional skill and efficiency in navigating complex professional transactions and technical operations, coupled with a proven, accelerated capacity for information assimilation.</p>
+                            <span class="period" style="color: #e87532;">Month 2023</span>
+                        </div>
+                        <div class="col-lg-4 d-none d-lg-block">
+                            <div class="featured-img-wrapper">
+                                <img src="assets/img/Testimonials/CamScanner1.jpg" class="featured-img" alt="English Certificate">
+                            </div>
+                        </div>
+                        <!-- الزر دا للموبايل فقط -->
+                        <div class="d-lg-none text-center">
+                            <button class="view-certificate-btn" onclick="openCertificate('assets/img/Testimonials/CamScanner1.jpg')">View Certificate</button>
+                        </div>
+                    </div>
                 </div>
-                <!--  إنتهاء الزر دا للموبايل فقط -->
-              </div>
+
+                <!-- Testimonial Item -->
+                <div class="testimonial-item mb-5">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <h2>Professional Certification in Front-End Development (90 Hrs)</h2>
+                            <p>I successfully completed the intensive 90-hour Professional Education Front-end Course, a high-value program certified in cooperation with Microsoft. This training was instrumental in mastering HTML, CSS, JavaScript (JS), Bootstrap, and React JS. Achieving a total grade of 'Very Good' (V.Good).</p>
+                            <p>This certification confirms my high technical skill and efficiency in building robust, responsive, and high-performance user interfaces. It demonstrates my ability to translate complex design concepts into functional and seamless digital experiences.</p>
+                            <span class="period" style="color: #e87532;">Feb 2024</span>
+                        </div>
+                        <div class="col-lg-4 d-none d-lg-block">
+                            <div class="featured-img-wrapper">
+                                <img src="assets/img/Testimonials/CamScanner5.jpg" class="featured-img" alt="Frontend Certificate">
+                            </div>
+                        </div>
+                        <!-- الزر دا للموبايل فقط -->
+                        <div class="d-lg-none text-center">
+                            <button class="view-certificate-btn" onclick="openCertificate('assets/img/Testimonials/CamScanner5.jpg')">View Certificate</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial Item -->
+                <div class="testimonial-item mb-5">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <h2>Certificate of Professional Competency in MS Office & Document Management</h2>
+                            <p>I was awarded a Certificate of Competency for demonstrating high proficiency in utilizing the Microsoft Office suite during my service period from January 2024 to September 2025.</p>
+                            <p>Specific competencies highlighted include expert use of Microsoft Word for professional document creation, Microsoft Excel for data analysis, and Microsoft PowerPoint for designing and delivering compelling presentations.</p>
+                            <span class="period" style="color: #e87532;">Jan 2024 - Sep 2025</span>
+                        </div>
+                        <div class="col-lg-4 d-none d-lg-block">
+                            <div class="featured-img-wrapper">
+                                <img src="assets/img/Testimonials/CamScanner7.jpg" class="featured-img" alt="MS Office Competency Certificate">
+                            </div>
+                        </div>
+                        <!-- الزر دا للموبايل فقط -->
+                        <div class="d-lg-none text-center">
+                            <button class="view-certificate-btn" onclick="openCertificate('assets/img/Testimonials/CamScanner7.jpg')">View Certificate</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <!-- Testimonial Item -->
-            <div class="testimonial-item mb-5">
-              <div class="row">
-                <div class="col-lg-8">
-                  <h2>Certificate of Appreciation for Academic Excellence
-                    (2021)</h2>
-                  <p>I was honored to receive a Certificate of Appreciation
-                    (Ta'deer) from the Board of Directors of the Ras El Bar
-                    Higher Institute for Specific Studies and Computer Science.
-                    This prestigious recognition was awarded for my outstanding
-                    academic excellence and superior performance demonstrated
-                    throughout my entire course of study and upon graduation in
-                    the academic year 2020/2021.</p>
-                  <p>This commendation underscores my unwavering commitment to
-                    achieving distinction and exceptional results in my
-                    educational journey, proving my dedication to
-                    professionalism and success in my career path.</p>
-                  <span class="period" style="color: #e87532;">2021</span>
-                </div>
-                <div class="col-lg-4 d-none d-lg-block">
-                  <div class="featured-img-wrapper">
-                    <img src="assets/img/Testimonials/CamScanner4.jpg"
-                      class="featured-img" alt>
-                  </div>
-                </div>
-                <!-- الزر دا للموبايل فقط -->
-                <div class="d-lg-none text-center">
-                  <button class="view-certificate-btn"
-                    onclick="openCertificate('assets/img/Testimonials/CamScanner4.jpg')">
-                    View Certificate
-                  </button>
-                </div>
-                <div id="certificateModal" class="certificate-modal">
-                  <span class="close-btn"
-                    onclick="closeCertificate()">&times;</span>
-                  <img id="certificateImg" src alt="Certificate">
-                </div>
-                <!--  إنتهاء الزر دا للموبايل فقط -->
-              </div>
-            </div>
-
-            <!-- Testimonial Item -->
-            <div class="testimonial-item mb-5">
-              <div class="row">
-                <div class="col-lg-8">
-                  <h2>Mastery Certification: Professional English
-                    Conversation</h2>
-                  <p>I am proud to highlight the successful completion of the
-                    Professional Training in English Conversation program in
-                    2022. This rigorous, 36-hour intensive program was
-                    strategically delivered by the esteemed American Council ,
-                    in conjunction with the Ministry of Communications and
-                    Information Technology, underscoring its significant
-                    governmental endorsement and quality.</p>
-                  <p>The certification serves as a robust testament to my
-                    mastery of advanced English conversational skills. More
-                    profoundly, it validates my exceptional skill and efficiency
-                    in navigating complex professional transactions and
-                    technical operations, coupled with a proven, accelerated
-                    capacity for information assimilation.</p>
-                  <span class="period" style="color: #e87532;">Month 2023</span>
-                </div>
-                <div class="col-lg-4 d-none d-lg-block">
-                  <div class="featured-img-wrapper">
-                    <img src="assets/img/Testimonials/CamScanner1.jpg"
-                      class="featured-img" alt>
-                  </div>
-                </div>
-                <!-- الزر دا للموبايل فقط -->
-                <div class="d-lg-none text-center">
-                  <button class="view-certificate-btn"
-                    onclick="openCertificate('assets/img/Testimonials/CamScanner1.jpg')">
-                    View Certificate
-                  </button>
-                </div>
-                <div id="certificateModal" class="certificate-modal">
-                  <span class="close-btn"
-                    onclick="closeCertificate()">&times;</span>
-                  <img id="certificateImg" src alt="Certificate">
-                </div>
-                <!--  إنتهاء الزر دا للموبايل فقط -->
-              </div>
-            </div>
-
-            <!-- Testimonial Item -->
-            <div class="testimonial-item mb-5">
-              <div class="row">
-                <div class="col-lg-8">
-                  <h2>Professional Certification in Front-End Development (90
-                    Hrs)</h2>
-                  <p>I successfully completed the intensive 90-hour Professional
-                    Education Front-end Course, a high-value program certified
-                    in cooperation with Microsoft. This training was
-                    instrumental in mastering HTML, CSS, JavaScript (JS),
-                    Bootstrap, and React JS. Achieving a total grade of
-                    'Very Good' (V.Good).</p>
-                  <p>This certification confirms my high technical skill and
-                    efficiency in building robust, responsive, and
-                    high-performance user interfaces. It demonstrates my ability
-                    to translate complex design concepts into functional and
-                    seamless digital experiences.</p>
-                  <span class="period" style="color: #e87532;">Feb 2024</span>
-                </div>
-                <div class="col-lg-4 d-none d-lg-block">
-                  <div class="featured-img-wrapper">
-                    <img src="assets/img/Testimonials/CamScanner5.jpg"
-                      class="featured-img" alt>
-                  </div>
-                </div>
-                <!-- الزر دا للموبايل فقط -->
-                <div class="d-lg-none text-center">
-                  <button class="view-certificate-btn"
-                    onclick="openCertificate('assets/img/Testimonials/CamScanner5.jpg')">
-                    View Certificate
-                  </button>
-                </div>
-                <div id="certificateModal" class="certificate-modal">
-                  <span class="close-btn"
-                    onclick="closeCertificate()">&times;</span>
-                  <img id="certificateImg" src alt="Certificate">
-                </div>
-                <!--  إنتهاء الزر دا للموبايل فقط -->
-              </div>
-            </div>
-
-            <!-- Testimonial Item -->
-            <div class="testimonial-item mb-5">
-              <div class="row">
-                <div class="col-lg-8">
-                  <h2>Certificate of Professional Competency in MS Office &
-                    Document Management</h2>
-                  <p>I was awarded a Certificate of Competency for demonstrating
-                    high proficiency in utilizing the Microsoft Office suite
-                    during my service period from January 2024 to September
-                    2025.</p>
-                  <p>Specific competencies highlighted include expert use of
-                    Microsoft Word for professional document creation, Microsoft
-                    Excel for data analysis, and Microsoft PowerPoint for
-                    designing and delivering compelling presentations.</p>
-                  <span class="period" style="color: #e87532;">Jan 2024 - Sep
-                    2025</span>
-                </div>
-                <div class="col-lg-4 d-none d-lg-block">
-                  <div class="featured-img-wrapper">
-                    <img src="assets/img/Testimonials/CamScanner7.jpg"
-                      class="featured-img"
-                      alt="MS Office Competency Certificate">
-                  </div>
-                </div>
-                <!-- الزر دا للموبايل فقط -->
-                <div class="d-lg-none text-center">
-                  <button class="view-certificate-btn"
-                    onclick="openCertificate('assets/img/Testimonials/CamScanner7.jpg')">
-                    View Certificate
-                  </button>
-                </div>
-                <div id="certificateModal" class="certificate-modal">
-                  <span class="close-btn"
-                    onclick="closeCertificate()">&times;</span>
-                  <img id="certificateImg" src alt="Certificate">
-                </div>
-                <!--  إنتهاء الزر دا للموبايل فقط -->
-              </div>
-            </div>
-
-          </div>
-        </section>
-        <!--/ testimonials -->
+        </section><!--/ testimonials -->
 
         <!-- Services Section -->
         <section id="services" class="services section light-background">
-
-          <!-- Section Title -->
-          <div class="container section-title" data-aos="fade-up">
-            <h2>My Services</h2>
-            <div class="title-shape">
-              <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
-                <path d="M 0,10 C 40,0 60,20 100,10 C 140,0 160,20 200,10"
-                  fill="none" stroke="currentColor" stroke-width="2"></path>
-              </svg>
-            </div>
-            <p>The main services I provide as a web developer using modern
-              technologies to build fast, secure, and user-friendly web
-              applications.</p>
-          </div>
-          <!-- End Section Title -->
-
-          <div class="container" data-aos="fade-up" data-aos-delay="100">
-            <div class="row align-items-center">
-
-              <div class="col-lg-4 mb-5 mb-lg-0">
-                <h2 class="fw-bold mb-4 servies-title">From idea to deployment —
-                  I help you build your perfect website.</h2>
-                <p class="mb-4">
-                  I specialize in developing full web systems using Laravel,
-                  PHP, MySQL, HTML, CSS, JavaScript, and Bootstrap with a focus
-                  on clean code and responsive design.
-                </p>
-                <a href="#contact" class="btn btn-outline-primary">Contact
-                  Me</a>
-              </div>
-
-              <div class="col-lg-8">
-                <div class="row g-4">
-
-                  <!-- Service 1 -->
-                  <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-item">
-                      <i class="bi bi-code-slash icon"></i>
-                      <h3>Web Development</h3>
-                      <p>Developing dynamic and scalable web applications using
-                        Laravel and PHP, fully integrated with MySQL
-                        databases.</p>
-                    </div>
-                  </div>
-
-                  <!-- Service 2 -->
-                  <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-item">
-                      <i class="bi bi-window icon"></i>
-                      <h3>Frontend Design</h3>
-                      <p>Creating responsive and interactive user interfaces
-                        using HTML, CSS, and JavaScript for a smooth user
-                        experience.</p>
-                    </div>
-                  </div>
-
-                  <!-- Service 3 -->
-                  <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="service-item">
-                      <i class="bi bi-speedometer2 icon"></i>
-                      <h3>Admin Dashboards</h3>
-                      <p>Building professional admin dashboards with
-                        authentication, user roles, and activity tracking using
-                        Laravel.</p>
-                    </div>
-                  </div>
-
-                  <!-- Service 4 -->
-                  <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
-                    <div class="service-item">
-                      <i class="bi bi-laptop icon"></i>
-                      <h3>Performance & Optimization</h3>
-                      <p>Improving website speed, performance, and
-                        responsiveness across all devices and browsers.</p>
-                    </div>
-                  </div>
-
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>My Services</h2>
+                <div class="title-shape">
+                    <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 0,10 C 40,0 60,20 100,10 C 140,0 160,20 200,10" fill="none" stroke="currentColor" stroke-width="2"></path>
+                    </svg>
                 </div>
-              </div>
+                <p>The main services I provide as a web developer using modern technologies to build fast, secure, and user-friendly web applications.</p>
             </div>
-          </div>
+            <!-- End Section Title -->
 
-        </section>
-        <!-- /Services Section -->
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h2 class="fw-bold mb-4 servies-title">From idea to deployment — I help you build your perfect website.</h2>
+                        <p class="mb-4">I specialize in developing full web systems using Laravel, PHP, MySQL, HTML, CSS, JavaScript, and Bootstrap with a focus on clean code and responsive design.</p>
+                        <a href="#contact" class="btn btn-outline-primary">Contact Me</a>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="row g-4">
+                            <!-- Service 1 -->
+                            <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                                <div class="service-item">
+                                    <i class="bi bi-code-slash icon"></i>
+                                    <h3>Web Development</h3>
+                                    <p>Developing dynamic and scalable web applications using Laravel and PHP, fully integrated with MySQL databases.</p>
+                                </div>
+                            </div>
+                            <!-- Service 2 -->
+                            <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                                <div class="service-item">
+                                    <i class="bi bi-window icon"></i>
+                                    <h3>Frontend Design</h3>
+                                    <p>Creating responsive and interactive user interfaces using HTML, CSS, and JavaScript for a smooth user experience.</p>
+                                </div>
+                            </div>
+                            <!-- Service 3 -->
+                            <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                                <div class="service-item">
+                                    <i class="bi bi-speedometer2 icon"></i>
+                                    <h3>Admin Dashboards</h3>
+                                    <p>Building professional admin dashboards with authentication, user roles, and activity tracking using Laravel.</p>
+                                </div>
+                            </div>
+                            <!-- Service 4 -->
+                            <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+                                <div class="service-item">
+                                    <i class="bi bi-laptop icon"></i>
+                                    <h3>Performance & Optimization</h3>
+                                    <p>Improving website speed, performance, and responsiveness across all devices and browsers.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- /Services Section -->
 
-        <!-- Contact Section -->
         <!-- Contact Section -->
         <section id="contact" class="contact section">
-
-          <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="row g-5">
-
-              <!-- Left Side Content -->
-              <div class="col-lg-6">
-                <div class="content" data-aos="fade-up" data-aos-delay="200">
-                  <div class="section-category mb-3">Contact me</div>
-                  <h2 class="display-5 mb-4">Let's build something exceptional
-                    together.</h2>
-                  <p class="lead mb-4">
-                    I’m open to freelance projects, collaborations, and
-                    full-time opportunities.
-                    Whether you need a professional website, a custom dashboard,
-                    or backend development with Laravel,
-                    feel free to reach out — I’ll respond as soon as possible.
-                  </p>
-                  <p class="mb-0">Let’s turn your ideas into reality with clean,
-                    efficient, and creative code.</p>
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div class="row g-5">
+                    <!-- Left Side Content -->
+                    <div class="col-lg-6">
+                        <div class="content" data-aos="fade-up" data-aos-delay="200">
+                            <div class="section-category mb-3">Contact me</div>
+                            <h2 class="display-5 mb-4">Let's build something exceptional together.</h2>
+                            <p class="lead mb-4">I'm open to freelance projects, collaborations, and full-time opportunities. Whether you need a professional website, a custom dashboard, or backend development with Laravel, feel free to reach out — I'll respond as soon as possible.</p>
+                            <p class="mb-0">Let's turn your ideas into reality with clean, efficient, and creative code.</p>
+                        </div>
+                    </div>
+                    <!-- Right Side Contact Info -->
+                    <div class="col-lg-6" style="margin-top: 96px;">
+                        <div class="info-item d-flex mb-3">
+                            <i class="bi bi-envelope-at me-3"></i>
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=oebrahem123@gmail.com" target="_blank" class="align-items-center" style="color:black; text-decoration: none;">oebrahem123@gmail.com</a>
+                        </div>
+                        <div class="info-item d-flex mb-3">
+                            <i class="bi bi-phone me-3"></i>
+                            <a href="tel:+201023196780" class="align-items-center" style="color:black; text-decoration: none;">+20 102 319 6780</a>
+                        </div>
+                        <div class="info-item d-flex mb-3">
+                            <i class="bi bi-phone me-3"></i>
+                            <a href="tel:+201093895575" class="align-items-center" style="color:black; text-decoration: none;">+201093895575</a>
+                        </div>
+                        <div class="info-item d-flex mb-4">
+                            <i class="bi bi-geo-alt me-3"></i>
+                            <span>Mansoura, Egypt (Available to work remotely or in Cairo)</span>
+                        </div>
+                        <a href="https://www.google.com/maps/search/Mansoura+Egypt" target="_blank" class="map-link d-inline-flex align-items-center" style="color:#0d6efd; text-decoration:none;">
+                            <span>Open on Google Maps</span>
+                            <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
                 </div>
-              </div>
-
-              <!-- Right Side Contact Info -->
-              <div class="col-lg-6" style="margin-top: 96px;">
-                <div class="info-item d-flex mb-3">
-                  <i class="bi bi-envelope-at me-3"></i>
-                  <a
-                    href="https://mail.google.com/mail/?view=cm&fs=1&to=oebrahem123@gmail.com"
-                    target="_blank"
-                    class="align-items-center"
-                    style="color:black; text-decoration: none;">
-                    oebrahem123@gmail.com
-                  </a>
-                </div>
-
-                <div class="info-item d-flex mb-3">
-                  <i class="bi bi-phone me-3"></i>
-                  <a href="tel:+201023196780"
-                    class="align-items-center"
-                    style="color:black; text-decoration: none;">
-                    +20 102 319 6780
-                  </a>
-                </div>
-                <div class="info-item d-flex mb-3">
-                  <i class="bi bi-phone me-3"></i>
-                  <a href="tel:+201093895575"
-                    class="align-items-center"
-                    style="color:black; text-decoration: none;">
-                    +201093895575
-                  </a>
-                </div>
-                <div class="info-item d-flex mb-4">
-                  <i class="bi bi-geo-alt me-3"></i>
-                  <span>Mansoura, Egypt (Available to work remotely or in
-                    Cairo)</span>
-                </div>
-
-                <a href="https://www.google.com/maps/search/Mansoura+Egypt"
-                  target="_blank"
-                  class="map-link d-inline-flex align-items-center"
-                  style="color:#0d6efd; text-decoration:none;">
-                  <span>Open on Google Maps</span>
-                  <i class="bi bi-arrow-right ms-2"></i>
-                </a>
-              </div>
-
             </div>
+        </section><!-- /Contact Section -->
 
-          </div>
+    </main>
 
-        </section>
-        <!-- /Contact Section -->
-
-      </main>
-
-      <footer id="footer" class="footer bg-light py-4 mt-5 border-top">
-
+    <footer id="footer" class="footer bg-light py-4 mt-5 border-top">
         <div class="container text-center">
-
-          <div class="social-links d-flex justify-content-center mb-3">
-            <a
-              href="https://x.com/OmarEbr81646909?t=8dFckG1D--hg-hib6HwxpQ&amp;s=09"
-              class="twitter"><i class="bi bi-twitter-x"></i></a>
-            <a href="https://www.facebook.com/omar.ebrahem1" class="facebook"><i
-                class="bi bi-facebook"></i></a>
-            <a href="https://www.instagram.com/omar_ebrahim14/?__pwa=1#"
-              class="instagram"><i class="bi bi-instagram"></i></a>
-            <a href="https://www.linkedin.com/in/omar-ebrahem"
-              class="linkedin"><i class="bi bi-linkedin"></i></a>
-          </div>
-          <p class="mb-1 text-muted">
-            © <span id="year"></span> <strong class="sitename">Omar
-              Ebrahem</strong> — All Rights Reserved
-          </p>
-          <p class="small text-secondary mb-1">
-            Designed with ❤️ by <strong>Omar Ebrahem</strong> using Laravel &
-            Bootstrap
-          </p>
+            <div class="social-links d-flex justify-content-center mb-3">
+                <a href="https://x.com/OmarEbr81646909?t=8dFckG1D--hg-hib6HwxpQ&amp;s=09" class="twitter"><i class="bi bi-twitter-x"></i></a>
+                <a href="https://www.facebook.com/omar.ebrahem1" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/omar_ebrahim14/?__pwa=1#" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/omar-ebrahem" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+            <p class="mb-1 text-muted">© <span id="year"></span> <strong class="sitename">Omar Ebrahem</strong> — All Rights Reserved</p>
+            <p class="small text-secondary mb-1">Designed with ❤️ by <strong>Omar Ebrahem</strong> using Laravel & Bootstrap</p>
         </div>
+    </footer>
 
-      </footer>
-      <!-- Scroll Top -->
-      <a href="#contact" id="scroll-top"
-        onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;"
-        class="scroll-top d-flex align-items-center justify-content-center">
+    <!-- Scroll Top -->
+    <a href="#contact" id="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="scroll-top d-flex align-items-center justify-content-center">
         <i class="bi bi-arrow-up-short"></i>
-      </a>
+    </a>
 
-      <script>
-  // auto update year
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+    <!-- Modal واحد للشهادات -->
+    <div id="certificateModal" class="certificate-modal">
+        <span class="close-btn" onclick="closeCertificate()">&times;</span>
+        <img id="certificateImg" src alt="Certificate">
+    </div>
 
-      <!-- Vendor JS Files -->
-      <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-      <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-      <script src="assets/js/ExtraContent.js"></script>
-      <script src="assets/vendor/aos/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-      <script src="assets/js/main.js"></script>
-    
-      <script>
-  function openCertificate(src) {
-    const modal = document.getElementById("certificateModal");
-    const img = document.getElementById("certificateImg");
-    modal.style.display = "flex";
-    img.src = src;
-  }
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="assets/js/ExtraContent.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/js/main.js"></script>
 
-  function closeCertificate() {
-    document.getElementById("certificateModal").style.display = "none";
-  }
-</script>
+    <script>
+        // auto update year
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-    </body>
+        // إصلاح مشكلة imagesLoaded إذا كانت موجودة في main.js
+        if (typeof imagesLoaded === 'undefined') {
+            window.imagesLoaded = function(container, callback) {
+                const images = container.querySelectorAll('img');
+                let loadedCount = 0;
+                const totalImages = images.length;
 
-  </html>
+                if (totalImages === 0) {
+                    callback();
+                    return;
+                }
+
+                images.forEach(img => {
+                    if (img.complete) {
+                        imageLoaded();
+                    } else {
+                        img.addEventListener('load', imageLoaded);
+                        img.addEventListener('error', imageLoaded);
+                    }
+                });
+
+                function imageLoaded() {
+                    loadedCount++;
+                    if (loadedCount === totalImages) {
+                        callback();
+                    }
+                }
+            };
+        }
+
+        // وظائف Modal للشهادات
+        function openCertificate(src) {
+            const modal = document.getElementById("certificateModal");
+            const img = document.getElementById("certificateImg");
+            
+            // إضافة loading state
+            img.src = '';
+            img.alt = 'Loading...';
+            
+            modal.style.display = "flex";
+            
+            // تحميل الصورة بعد عرض الـ modal
+            const image = new Image();
+            image.onload = function() {
+                img.src = src;
+                img.alt = 'Certificate';
+            };
+            image.src = src;
+        }
+
+        function closeCertificate() {
+            document.getElementById("certificateModal").style.display = "none";
+        }
+
+        // إغلاق الـ modal بالضغط على ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeCertificate();
+            }
+        });
+
+        // إغلاق الـ modal بالضغط خارج الصورة
+        document.getElementById('certificateModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeCertificate();
+            }
+        });
+
+        // تحسين تحميل الصور
+        document.addEventListener('DOMContentLoaded', function() {
+            // إضافة lazy loading للصور
+            const images = document.querySelectorAll('img:not(.hero img)');
+            
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                        }
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            images.forEach(img => {
+                if (!img.classList.contains('critical')) {
+                    // إذا كانت الصورة غير محملة بعد، أضفها للمراقبة
+                    if (!img.complete || img.naturalHeight === 0) {
+                        imageObserver.observe(img);
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
