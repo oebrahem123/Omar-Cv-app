@@ -108,46 +108,5 @@
     }
   });
 
-// كود تتبع القسم النشط وتغيير الألوان
-document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('.navmenu a');
-    const sections = document.querySelectorAll('section');
-    
-    // وظيفة لتحديد القسم النشط
-    function setActiveLink() {
-        let current = '';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            
-            if (scrollY >= (sectionTop - 200)) {
-                current = section.getAttribute('id');
-            }
-        });
 
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
-    }
-
-    // استمع لحدث التمرير
-    window.addEventListener('scroll', setActiveLink);
-    
-    // استمع للنقر على الروابط
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            // إزالة النشط من جميع الروابط
-            navLinks.forEach(l => l.classList.remove('active'));
-            // إضافة النشط للرابط المختار
-            this.classList.add('active');
-        });
-    });
-
-    // تحديث عند التحميل
-    setActiveLink();
-});
 
