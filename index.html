@@ -1009,6 +1009,133 @@
             });
         });
     </script>
+<script>
+(function(){
+  // سيلكتور الـ nav links — غيّره لو عندك هيكل مختلف
+  const navSelector = '#navmenu a';
+  const navLinks = Array.from(document.querySelectorAll(navSelector));
 
+  // DEBUG: لو مفيش روابط هيرسل رسالة للمطوّر في الكونسول
+  if (!navLinks.length) {
+    console.warn('[NavActive] لم يُعثر على روابط بـ selector:', navSelector);
+  }
+
+  // remove active from all
+  function clearActive() {
+    navLinks.forEach(l => l.classList.remove('active'));
+  }
+
+  // set active
+  function setActive(link) {
+    clearActive();
+    if (link) link.classList.add('active');
+  }
+
+  // مقارنة مسارات مع مرونة: 
+  // نأخذ pathname+hash أو href النهائي (filename) لمطابقة أفضل
+  function normalizeHref(href) {
+    try {
+      const url = new URL(href, window.location.origin);
+      // نرجع المسار مع الهَاش لو موجود، وإلا فقط اسم الملف/المسار
+      return (url.pathname + (url.hash || '')).replace(/\/+$/, '');
+    } catch (e) {
+      // لو href مثل "#about"
+      return href;
+    }
+  }
+
+  // حاول نطابق حسب URL الحالي (بدون الهَاش) وأيضًا بالهاش
+  function matchByUrl() {
+    const currentFull = (window.location.pathname + (window.location.hash || '')).replace(/\/+$/, '');
+    const currentNoHash = window.location.pathname.replace(/\/+$/, '');
+    // console.log('currentFull', currentFull, 'currentNoHash', currentNoHash);
+
+    // الأول نحاول نطابق الهَاش لو فيه
+    if (window.location.hash) {
+      const byHash = navLinks.find(a => {
+        const h = a.getAttribute('href');
+        return h === window.location.hash || normalizeHref(h) === normalizeHref(window.location.href);
+      });
+      if (byHash) { setActive(byHash); return true; }
+    }
+
+    // بعدين نحاول مطابقة كاملة أو بناءً على نهاية المسار (filename)
+    let matched = navLinks.find(a => normalizeHref(a.href) === normalizeHref(window.location.href));
+    if (matched) { setActive(matched); return true; }
+
+    // محاولة مرنة: تطابق آخر جزء من المسار (مثلاً index.html أو about.html أو /about)
+    const currentEnd = window.location.pathname.split('/').filter(Boolean).pop() || '/';
+    matched = navLinks.find(a => {
+      const aHref = normalizeHref(a.href);
+      const aEnd = aHref.split('/').filter(Boolean).pop() || '/';
+      return aEnd === currentEnd;
+    });
+    if (matched) { setActive(matched); return true; }
+
+    return false;
+  }
+
+  // Observer للـ one-page: يفعّل الرابط عندما يكون الـ section في العرض
+  function observeSections() {
+    const anchors = navLinks
+      .map(a => a.getAttribute('href'))
+      .filter(h => h && h.startsWith('#'))
+      .map(h => document.querySelector(h))
+      .filter(Boolean);
+
+    if (!anchors.length) return;
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = '#' + entry.target.id;
+          const link = navLinks.find(a => a.getAttribute('href') === id);
+          if (link) setActive(link);
+        }
+      });
+    }, { threshold: 0.55 });
+
+    anchors.forEach(sec => observer.observe(sec));
+  }
+
+  // عند الضغط على اللينك: فعل فورًا و خزّن (اختياري)
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      // لو الرابط يوجّه لصفحة خارجية لا نتدخل
+      const href = link.getAttribute('href') || '';
+      // فعّل اللون فورًا
+      setActive(link);
+      try { localStorage.setItem('nav-active-href', href); } catch(e) {}
+      // لا نمنع الـ default لأن نريد التنقل/الـ scroll طبيعي
+    });
+  });
+
+  // عند تحميل الصفحة حاول نحدّد الـ active بهذه الأولوية:
+  // 1) قراءة من localStorage إذا موجود
+  // 2) matchByUrl()
+  // 3) Observer للـ sections (one-page)
+  document.addEventListener('DOMContentLoaded', () => {
+    // DEBUG: اطبع اللينكات الموجودة لمساعدة التصحيح
+    console.log('[NavActive] Found nav links:', navLinks.map(a => a.href));
+
+    const saved = (function(){ try { return localStorage.getItem('nav-active-href'); } catch(e){ return null; } })();
+    if (saved) {
+      const fromStorage = navLinks.find(a => a.getAttribute('href') === saved || a.href === saved);
+      if (fromStorage) { setActive(fromStorage); return; }
+    }
+
+    const matched = matchByUrl();
+    if (!matched) {
+      observeSections();
+    }
+  });
+
+  // لو تغير الهَاش نفعّل المحاولة بالمطابقة
+  window.addEventListener('hashchange', () => {
+    matchByUrl();
+  });
+
+})();
+</script>
 </body>
 </html>
