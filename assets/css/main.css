@@ -2379,5 +2379,13 @@ section,
   }
   
 
+ .nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+  }
 
+  .nav-link.active {
+    color: orange;
+  }
 
