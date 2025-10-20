@@ -117,4 +117,12 @@
 
 
 
+  // اختار كل اللينكات
+  const navLinks = document.querySelectorAll(".nav-link");
 
+  // هنتأكد إن اللينك اللى صفحته مفتوحة ياخد الكلاس active
+  navLinks.forEach(link => {
+    if (link.href === window.location.href) {
+      link.classList.add("active");
+    }
+  });
