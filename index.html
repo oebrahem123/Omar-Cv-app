@@ -1137,5 +1137,31 @@
 
 })();
 </script>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll("#navmenu a");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - 150; // تعديل بسيط لتحديد بداية التفعيل
+      const sectionHeight = section.clientHeight;
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach((a) => {
+      a.classList.remove("active");
+      if (a.getAttribute("href") === `#${current}`) {
+        a.classList.add("active");
+      }
+    });
+  });
+});
+</script>
+
 </body>
 </html>
